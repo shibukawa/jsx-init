@@ -1,0 +1,15 @@
+{
+    "comment": "@@@@@ This file is used from jsx-init. Not installed to generated program @@@@@",
+    "description": "includes: command line tool source file, folder for library and unit test.",
+    "dirs": ["bin", "src", "lib", "test", "doc"],
+    "templates":
+    [
+        "README.md",
+        "package.json",
+        "src/__name__.jsx",
+        "test/test-__name__.jsx",
+        "gruntfile.js"
+    ],
+    "copyfiles": [".gitignore", ".travis.yml"],
+    "licenses": false
+}

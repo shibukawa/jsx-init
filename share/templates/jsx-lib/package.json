@@ -1,0 +1,30 @@
+{
+  "name": "{{& name }}",
+  "version": "{{& version }}",
+  "description": "{{& description }}",
+  "scripts": {
+    "build": "grunt build",
+    "test": "grunt test",
+    "doc": "grunt doc"
+  },
+  "keywords": [
+    "jsx",
+    "lib"
+  ],
+  "directories": {
+    "doc": "./doc",
+    "lib": "./lib"
+  },
+  "repository": {
+    "type": "{{& repositorytype}}",
+    "url": "{{& repository }}
+  },
+  "devDependencies": {
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt": "~0.4.1",
+    "grunt-exec": "~0.4.2",
+    "grunt-jsx": "~0.0.4"
+  },
+  "author": "{{& author }}",
+  "license": "{{& licensename }}"
+}
