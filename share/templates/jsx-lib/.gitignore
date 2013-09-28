@@ -4,4 +4,4 @@
 /doc/
 
 ## allow ##
-/samples/*.jsx
+!/samples/*.jsx

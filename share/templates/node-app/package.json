@@ -14,10 +14,12 @@
   "engines" : { "node" : ">=0.8.0" },
   "keywords": [
     "jsx",
-    "lib"
+    "app"
   ],
   "homepage": "{{& homepage }}",
-  "bugs": "{{& issuetracker }}",
+  "bugs": {
+    "url": "{{& issuetracker }}"
+  },
   "directories": {
     "doc": "./doc",
     "lib": "./lib"
@@ -29,7 +31,6 @@
   "devDependencies": {
     "grunt-contrib-watch": "~0.5.3",
     "grunt": "~0.4.1",
-    "grunt-exec": "~0.4.2",
     "grunt-jsx": "~0.0.4"
   },
   "author": "{{& author }}",

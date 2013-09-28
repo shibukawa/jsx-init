@@ -7,13 +7,20 @@
     "test": "grunt test",
     "doc": "grunt doc"
   },
+  "engines" : { "node" : ">=0.8.0" },
   "keywords": [
     "jsx",
     "lib"
   ],
+  "main": "./lib/{{& name}}.jsx",
+  "homepage": "{{& homepage }}",
+  "bugs": {
+    "url": "{{& issuetracker }}"
+  },
   "directories": {
     "doc": "./doc",
-    "lib": "./lib"
+    "lib": "./lib",
+    "test": "./test"
   },
   "repository": {
     "type": "{{& repositorytype}}",
@@ -22,7 +29,6 @@
   "devDependencies": {
     "grunt-contrib-watch": "~0.5.3",
     "grunt": "~0.4.1",
-    "grunt-exec": "~0.4.2",
     "grunt-jsx": "~0.0.4"
   },
   "author": "{{& author }}",

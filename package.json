@@ -11,11 +11,6 @@
   "bin": {
     "jsx-init": "./bin/jsx-init"
   },
-  "files": [
-    "./share/licenses/",
-    "./share/templates/jsx-lib/",
-    "./share/templates/node-app/"
-  ],
   "keywords": [
     "jsx",
     "tool"

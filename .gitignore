@@ -1,4 +1,4 @@
 ## ignore ##
-/node_modules/
-/bin/*
-/doc/*
+node_modules/
+bin/*
+doc/*
