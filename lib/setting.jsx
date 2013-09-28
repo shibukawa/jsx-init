@@ -108,7 +108,7 @@ class Setting
                 description.join('\n'), this.templates.length);
         return result;
     }
-    
+
     function getLicenseQuestion (selectedTemplate : int) : Selection
     {
         var licenses = this.getCompatibleLicenseList(selectedTemplate);
@@ -118,7 +118,7 @@ class Setting
             description.push((i + 1) + ': ' + licenses[i]);
         }
         var result = new Selection('license', 'Which license do you use?',
-                description.join('\n'), this.templates.length);
+                description.join('\n'), licenses.length);
         return result;
     }
 
