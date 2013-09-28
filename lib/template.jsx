@@ -49,7 +49,7 @@ class Template
         {
             var srcPath = path.join(this.path, this.copyfiles[i]);
             var destPath = this.destPath(this.copyfiles[i], result);
-            console.log('copying ...', this.copyfiles[i].replace('__name__', result['name'] as string));
+            console.log('copying ...', this.fixFilePath(this.copyfiles[i], result));
             fs.writeFileSync(destPath, fs.readFileSync(srcPath, 'utf8'), 'utf8');
         }
 
@@ -66,14 +66,14 @@ class Template
         }
     }
 
+    function fixFilePath(filepath : string, context : Map.<variant>) : string
+    {
+        return filepath.replace(/__name__/g, context['name'] as string).replace(/__dot__/, '.');
+    }
+
     function destPath(filepath : string, context : Map.<variant>) : string
     {
-        var result = path.join(process.cwd(), filepath);
-        if (result.indexOf('__name__') != -1)
-        {
-            result = result.replace(/__name__/g, context['name'] as string);
-        }
-        return result;
+        return this.fixFilePath(path.join(process.cwd(), filepath), context);
     }
 
     function applyTemplate(srcPath : string, destPath : string, context : Map.<variant>) : void

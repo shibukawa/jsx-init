@@ -10,6 +10,6 @@
         "test/test-__name__.jsx",
         "gruntfile.js"
     ],
-    "copyfiles": [".gitignore", ".travis.yml"],
+    "copyfiles": ["__dot__gitignore", ".npmignore", ".travis.yml", "gruntfile.js"],
     "licenses": false
 }
