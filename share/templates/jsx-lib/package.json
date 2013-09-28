@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "{{& repositorytype}}",
-    "url": "{{& repository }}
+    "url": "{{& repository }}"
   },
   "devDependencies": {
     "grunt-contrib-watch": "~0.5.3",
