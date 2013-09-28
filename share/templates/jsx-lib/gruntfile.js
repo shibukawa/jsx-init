@@ -4,18 +4,17 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     sampleDir: "samples",
-    buildDir: "bin",
     libDir: "lib",
     testDir: "test",
     docDir: "doc",
 
     watch: {
-      jsxinit: {
-        files: ['<%= srcDir %>/*.jsx', '<%= libDir %>/*.jsx'],
+      sample: {
+        files: ['<%= sampleDir %>/*.jsx', '<%= libDir %>/*.jsx'],
         tasks: ['jsx:build']
       },
       test: {
-        files: ['<%= testDir %>/*.jsx'],
+        files: ['<%= testDir %>/*.jsx', '<%= libDir %>'],
         tasks: ['jsx:test']
       }
     },
@@ -30,7 +29,7 @@ module.exports = function(grunt) {
       test: {
         src: ['<%= testDir %>/*.jsx'],
         add_search_path: ['<%= libDir %>'],
-        test: true
+        args: '--test'
       },
 
       doc: {
@@ -48,8 +47,9 @@ module.exports = function(grunt) {
     }
   }
 
-  grunt.registerTask('build', ['jsx:buildsample']);
-  grunt.registerTask('test', ['jsx_test:runtest']);
-  grunt.registerTask('doc', ['jsx_doc:apidoc']);
+  grunt.registerTask('default', ['jsx:test']);
+  grunt.registerTask('build', ['jsx:build']);
+  grunt.registerTask('test', ['jsx:test']);
+  grunt.registerTask('doc', ['jsx:doc']);
 };
 // vim: set expandtab tabstop=2 shiftwidth=2:
