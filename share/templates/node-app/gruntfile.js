@@ -23,9 +23,9 @@ module.exports = function(grunt) {
 
     jsx: {
       build: {
-        src: ['<%= srcDir %>/{{& name }}.jsx'],
+        src: ['<%= srcDir %>/{{& filebasename }}.jsx'],
         add_search_path: ['<%= libDir %>'],
-        dest: '<%= buildDir %>/{{& name }}',
+        dest: '<%= buildDir %>/{{& filebasename }}',
         executable: 'node',
         release: true
       },

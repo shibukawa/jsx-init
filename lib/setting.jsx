@@ -14,9 +14,13 @@ class Setting
     var githubAccount : string;
     var bitbucketAccount : string;
     var jsxinitDir : string;
+    var version : string;
 
     function constructor(userDir : string)
     {
+        var packageJson = fs.readFileSync(path.resolve(node.__dirname, '../package.json'), 'utf8');
+        this.version = JSON.parse(packageJson)['version'] as string;
+
         var templates = {} : Map.<Template>;
         this.jsxinitDir = path.join(userDir, '.jsxinit');
         if (!fs.existsSync(this.jsxinitDir))

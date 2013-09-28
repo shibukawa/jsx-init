@@ -10,7 +10,7 @@ Code Example
 ---------------
 
 ```js
-import "{{& name }}.jsx";
+import "{{& filebasename }}.jsx";
 
 class _Main {
     static function main(argv : string[]) : void

@@ -9,7 +9,6 @@ import "prompt.jsx";
 
 class JSXInit
 {
-
     var currentDir : string;
     var dirName : string;
 
@@ -33,6 +32,10 @@ class JSXInit
     function start() : void
     {
         var setting = this.defaultSetting();
+
+        console.log("jsx-init: version " + setting.version);
+        console.log("    By Yoshiki Shibukawa (https://github.com/shibukawa/jsx-init");
+
         var prompt = new Prompt();
         prompt.add(new OpenQuestion('Name', false, 'Project name', setting.name, function (value : string) {
             prompt.setDefault('name', this.normalizeName(value));
@@ -45,6 +48,14 @@ class JSXInit
             if (finish)
             {
                 var name = prompt.get('name') as string;
+                if (name.slice(-4) == '.jsx')
+                {
+                    prompt.setDefault('filebasename', name.slice(0, -4));
+                }
+                else
+                {
+                    prompt.setDefault('filebasename', name);
+                }
                 prompt.add(setting.getLicenseQuestion(prompt.get('template') as int));
                 prompt.add(new OpenQuestion('author', false, 'Author name', setting.author, function (value : string) {
                     setting.author = value;
@@ -73,9 +84,9 @@ class JSXInit
                     setting.mail = value;
                 }));
                 prompt.add(new OpenQuestion('repository', true, "Repository URI", function (value : string) {
-                    var bitbucket = value.match(new RegExp('((https://)|(ssh://hg@)|(git@))bitbucket\.org[:/]([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+)(\.git)?'));
-                    var bitbucket_git_https = value.match(new RegExp('https://([-_a-zA-Z0-9]+)@bitbucket\.org/([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+)\.git'));
-                    var github = value.match(new RegExp('((https://)|(git@)|(git://))github\.com[:/]([-_a-zA-Z0-9]+)/([-_a-zA-Z0-9]+)(\.git)?'));
+                    var bitbucket = value.match(new RegExp('((https://)|(ssh://hg@)|(git@))bitbucket\.org[:/]([\.-_a-zA-Z0-9]+)/([\.-_a-zA-Z0-9]+)(\.git)?'));
+                    var bitbucket_git_https = value.match(new RegExp('https://([\.-_a-zA-Z0-9]+)@bitbucket\.org/([\.-_a-zA-Z0-9]+)/([\.-_a-zA-Z0-9]+)\.git'));
+                    var github = value.match(new RegExp('((https://)|(git@)|(git://))github\.com[:/]([\.-_a-zA-Z0-9]+)/([\.-_a-zA-Z0-9]+)(\.git)?'));
                     var issuetracker = '';
                     var homepage = '';
                     prompt.setDefault('repositorytype', 'git');
@@ -165,7 +176,7 @@ Enjoy JSX!
 
     function normalizeName(name : string) : string
     {
-        return name.toLowerCase().replace(/[ &*^%$#@!~`+=[]\{}|;':",.\/<>?]/g, '-');
+        return name.toLowerCase().replace(/[ &*^%$#@!~`+=\[\]\\{}|;':",\/<>?]/g, '-');
     }
 }
 

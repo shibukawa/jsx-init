@@ -23,7 +23,7 @@ Usage
 ---------------
 
 ```sh
-$ {{& name }} [option] files...
+$ {{& filebasename }} [option] files...
 ```
 
 ### option
@@ -38,7 +38,7 @@ Usage Sample
 ### Show Help
 
 ```sh
-$ {{& name }} --help
+$ {{& filebasename }} --help
 ```
 
 Development

@@ -12,7 +12,7 @@
     "jsx",
     "lib"
   ],
-  "main": "./lib/{{& name}}.jsx",
+  "main": "./lib/{{& filebasename}}.jsx",
   "homepage": "{{& homepage }}",
   "bugs": {
     "url": "{{& issuetracker }}"

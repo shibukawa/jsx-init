@@ -1,5 +1,5 @@
 import "test-case.jsx";
-import "{{& name }}.jsx";
+import "{{& filebasename }}.jsx";
 import "js/nodejs.jsx";
 
 

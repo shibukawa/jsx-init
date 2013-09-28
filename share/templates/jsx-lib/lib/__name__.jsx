@@ -8,12 +8,12 @@
  * @see {{& repository }}
  */
 
-class {{% Name %}}
+class {{& filebasename }}
 {
     var message : string;
 
     /**
-     * Constructs {{% Name %}} object.
+     * Constructs {{& Name }} object.
      */
     function constructor()
     {

@@ -9,7 +9,7 @@
     "doc": "grunt doc"
   },
   "bin": {
-    "{{& name }}": "./bin/{{& name}}"
+    "{{& filebasename }}": "./bin/{{& filebasename}}"
   },
   "engines" : { "node" : ">=0.8.0" },
   "keywords": [

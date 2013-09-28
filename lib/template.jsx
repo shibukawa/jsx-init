@@ -61,14 +61,14 @@ class Template
         {
             var srcPath = path.join(this.path, this.templates[i]);
             var destPath = this.destPath(this.templates[i], result);
-            console.log('creating ...', this.templates[i].replace('__name__', result['name'] as string));
+            console.log('creating ...', this.templates[i].replace('__name__', result['filebasename'] as string));
             this.applyTemplate(srcPath, destPath, result);
         }
     }
 
     function fixFilePath(filepath : string, context : Map.<variant>) : string
     {
-        return filepath.replace(/__name__/g, context['name'] as string).replace(/__dot__/, '.');
+        return filepath.replace(/__name__/g, context['filebasename'] as string).replace(/__dot__/, '.');
     }
 
     function destPath(filepath : string, context : Map.<variant>) : string
