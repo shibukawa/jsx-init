@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "This tool helps creating project scaffolding for JSX.",
   "scripts": {
-    "prepublish": "grunt build;grunt doc",
-    "build": "grunt build",
+    "prepublish": "grunt build",
+    "build": "./node_modules/.bin/grunt build",
     "test": "grunt test",
     "doc": "grunt doc"
   },
@@ -12,17 +12,21 @@
     "jsx-init": "./bin/jsx-init"
   },
   "files": [
-    "./share"
+    "./share/licenses/",
+    "./share/templates/jsx-lib/",
+    "./share/templates/node-app/"
   ],
   "keywords": [
     "jsx",
-    "lib"
+    "tool"
   ],
   "homepage": "https://github.com/shibukawa/jsx-init",
-  "bugs": "https://github.com/shibukawa/jsx-init/issues",
+  "bugs": {
+    "url": "https://github.com/shibukawa/jsx-init/issues"
+  },
   "directories": {
-    "doc": "./doc",
-    "lib": "./lib"
+    "doc": "doc",
+    "test": "test"
   },
   "repository": {
     "type": "git",
@@ -34,6 +38,8 @@
     "grunt-exec": "~0.4.2",
     "grunt-jsx": "~0.0.4"
   },
-  "author": "shibukawa",
-  "license": "MIT"
+  "author": "Yoshiki Shibukawa",
+  "license": "MIT",
+  "main": "bin/jsx-init",
+  "dependencies": {}
 }

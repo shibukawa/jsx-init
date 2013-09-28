@@ -25,7 +25,7 @@ module.exports = function(grunt) {
       build: {
         src: ['<%= srcDir %>/jsx-init.jsx'],
         add_search_path: ['<%= libDir %>'],
-        dest: '<%= srcDir %>/jsx-init',
+        dest: '<%= buildDir %>/jsx-init',
         executable: 'node',
         release: true
       },
