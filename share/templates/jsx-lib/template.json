@@ -5,6 +5,7 @@
     "templates":
     [
         "README.md",
+        "HISTORY.md",
         "package.json",
         "lib/__name__.jsx",
         "samples/__name__-sample.jsx",

@@ -5,7 +5,7 @@
  *
  * @author {{& author }}
  *
- * @see {{& repository }}
+ * @see {{& homepage }}
  */
 
 class {{& filebasename }}

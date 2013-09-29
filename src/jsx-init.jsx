@@ -69,7 +69,7 @@ class JSXInit
                     }
                     if (setting.githubAccount)
                     {
-                        prompt.setDefault('repository', 'git@github.com:' + setting.githubAccount + '/' + name + '.git');
+                        prompt.setDefault('repository', 'git://github.com/' + setting.githubAccount + '/' + name + '.git');
                     }
                     else if (setting.bitbucketAccount)
                     {
@@ -77,7 +77,7 @@ class JSXInit
                     }
                     else
                     {
-                        prompt.setDefault('repository', 'git@github.com:' + this.normalizeName(value) + '/' + name + '.git');
+                        prompt.setDefault('repository', 'git:/github.com/' + this.normalizeName(value) + '/' + name + '.git');
                     }
                 }));
                 prompt.add(new OpenQuestion('mail', true, "Author's mail address", function (value : string) {
@@ -95,7 +95,7 @@ class JSXInit
                         setting.bitbucketAccount = bitbucket[5];
                         homepage = 'https://bitbucket.org/' + bitbucket[5] + '/' + bitbucket[6];
                         issuetracker = homepage + "/issues?status=new&status=open";
-                        if (value.indexOf('git@') == -1)
+                        if (value.indexOf('git') == -1)
                         {
                             prompt.setDefault('repositorytype', 'hg');
                         }
@@ -110,7 +110,7 @@ class JSXInit
                     else if (github)
                     {
                         setting.githubAccount = github[5];
-                        homepage = 'https://github.org/' + github[5] + '/' + github[6];
+                        homepage = 'https://github.com/' + github[5] + '/' + github[6];
                         issuetracker = homepage + "/issues";
                     }
                     if (homepage)
@@ -142,6 +142,8 @@ class JSXInit
         var license = setting.getLicensePath(result['template'] as int, result['license'] as int);
         var date = new Date();
         result['year'] = date.getFullYear();
+        result['month'] = date.getMonth() + 1;
+        result['day'] = date.getDate();
         result['licensename'] = path.basename(license).slice(0, -3);
         template.generate(result, license);
         setting.save();
