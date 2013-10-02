@@ -37,8 +37,9 @@ class JSXInit
         console.log("    By Yoshiki Shibukawa (https://github.com/shibukawa/jsx-init");
 
         var prompt = new Prompt();
-        prompt.add(new OpenQuestion('Name', false, 'Project name', setting.name, function (value : string) {
+        prompt.add(new OpenQuestion('OriginalName', false, 'Project name', setting.name, function (value : string) {
             prompt.setDefault('name', this.normalizeName(value));
+            prompt.setDefault('Name', this.symbolName(value));
         }));
         prompt.add(new OpenQuestion('name', false, 'npm Package name'));
         prompt.add(new OpenQuestion('description', false, 'Short description', "This is an awesome project to make everyone happy!"));
@@ -105,12 +106,20 @@ class JSXInit
                         var matched = bitbucket_git_https;
                         setting.bitbucketAccount = matched[1];
                         homepage = 'https://bitbucket.org/' + matched[1] + '/' + matched[3];
+                        if (homepage.slice(-4) == '.git')
+                        {
+                            homepage = homepage.slice(0, -4);
+                        }
                         issuetracker = homepage + "/issues?status=new&status=open";
                     }
                     else if (github)
                     {
                         setting.githubAccount = github[5];
                         homepage = 'https://github.com/' + github[5] + '/' + github[6];
+                        if (homepage.slice(-4) == '.git')
+                        {
+                            homepage = homepage.slice(0, -4);
+                        }
                         issuetracker = homepage + "/issues";
                     }
                     if (homepage)
@@ -179,6 +188,15 @@ Enjoy JSX!
     function normalizeName(name : string) : string
     {
         return name.toLowerCase().replace(/[ &*^%$#@!~`+=\[\]\\{}|;':",\/<>?]/g, '-');
+    }
+
+    function symbolName(name : string) : string
+    {
+        if (name.slice(-4) == '.jsx')
+        {
+            name = name.slice(0, -4);
+        }
+        return name.replace(/[ \.&*^%$#@!~`+=\[\]\\{}|;':",\/<>?]/g, '_');
     }
 }
 

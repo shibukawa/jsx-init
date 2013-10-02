@@ -1,4 +1,6 @@
 /**
+ * {{& OrigianlName }}
+ *
  * {{& description }}
  *
  * [sample] This comment is document for class. You can use some HTML tags.
@@ -6,9 +8,11 @@
  * @author {{& author }}
  *
  * @see {{& homepage }}
+ *
+ * License: {{& licensename }}
  */
 
-class {{& filebasename }}
+class {{& Name }}
 {
     var message : string;
 

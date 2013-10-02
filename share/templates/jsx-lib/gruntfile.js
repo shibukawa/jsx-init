@@ -24,12 +24,13 @@ module.exports = function(grunt) {
         src: ['<%= sampleDir %>/*.jsx'],
         add_search_path: ['<%= libDir %>'],
         dest: '<%= sampleDir %>/',
+        executable: 'node'
       },
 
       test: {
         src: ['<%= testDir %>/*.jsx'],
         add_search_path: ['<%= libDir %>'],
-        args: '--test'
+        test: true
       },
 
       doc: {

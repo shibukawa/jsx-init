@@ -1,11 +1,13 @@
 History
 ==========
 
-0.1.3 (??)
+0.1.3 (2013/10/2)
 ------------------
 
-* Fix github URL
-* Add HISTORY.md to templates
+* Fix github URL.
+* Add HISTORY.md to templates.
+* Upgrade grunt-jsx from 0.0.4 to 0.1.1 (thanks @yosuke_furukawa!).
+* Fix template file header comments.
 
 0.1.2 (2013/9/28)
 ------------------

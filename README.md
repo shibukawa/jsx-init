@@ -67,7 +67,7 @@ You can run test by using prove command:
 
 ```sh
 # Run test (-v shows detail error information)
-$ prove -v
+$ grunt test
 ```
 
 Following default Grunt commands are available:
@@ -158,6 +158,8 @@ Thanks
 ------------
 
 *   JSX guys are cool guys! Thank you `@kazuho`, `@__gfx__`, `@wasabiz`!
+
+*   grunt-jsx simplify grunt setting file. Thank you `@yosuke_furukawa`!
 
 *   README.md templates were created from following template:
 
