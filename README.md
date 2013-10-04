@@ -55,6 +55,7 @@ Before running command, creating repository on github or bitbucket is prefered.
 
 * `jsx-lib`: Library for JSX code.
 * `node-app`: node.js cli application.
+* `web-canvas`: HTML5 Canvas application.
 
 How to develop in the generated project
 --------------------------------------------

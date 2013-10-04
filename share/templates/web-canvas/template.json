@@ -1,0 +1,18 @@
+{
+    "comment": "@@@@@ This file is used from jsx-init. Not installed to generated program @@@@@",
+    "description": "includes: JSX source file, html, css to use Canvas API, web server setting to run on Chrome.",
+    "dirs": ["dest", "dest/css", "dest/src", "src", "lib", "test", "doc"],
+    "templates":
+    [
+        "README.md",
+        "HISTORY.md",
+        "package.json",
+        "src/__name__.jsx",
+        "dest/index.html",
+        "dest/css/style.css",
+        "test/test-__name__.jsx",
+        "gruntfile.js"
+    ],
+    "copyfiles": ["__dot__gitignore", ".npmignore", ".travis.yml", "gruntfile.js"],
+    "licenses": false
+}
