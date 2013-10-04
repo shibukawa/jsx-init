@@ -29,7 +29,7 @@
   "devDependencies": {
     "grunt-contrib-watch": "~0.5.3",
     "grunt": "~0.4.1",
-    "grunt-jsx": ">=0.1.2"
+    "grunt-jsx": ">=0.1.3"
   },
   "author": "{{& author }}",
   "license": "{{& licensename }}"
