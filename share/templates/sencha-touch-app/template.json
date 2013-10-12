@@ -7,6 +7,8 @@
         "dest/cmd",
         "dest/packages",
         "dest/touch",
+        "dest/touch/src",
+        "dest/touch/microloader",
         "dest/touch/cmd",
         "src",
         "src/controller",
@@ -38,7 +40,7 @@
         "dest/touch/cmd/sencha.cfg",
         "dest/__dot__sencha",
         "dest/resources",
-        ["{{& senchatouchsdk }}/src", "dest/touch"],
+        ["{{& senchatouchsdk }}/src", "dest/touch/src"],
         ["{{& senchatouchsdk }}/sencha-touch-all-debug.js", "dest/touch"],
         ["{{& senchatouchsdk }}/sencha-touch-all.js", "dest/touch"],
         ["{{& senchatouchsdk }}/sencha-touch-debug.js", "dest/touch"],
@@ -46,7 +48,7 @@
         ["{{& senchatouchsdk }}/file-header.txt", "dest/touch"],
         ["{{& senchatouchsdk }}/license.txt", "dest/touch"],
         ["{{& senchatouchsdk }}/version.txt", "dest/touch"],
-        ["{{& senchatouchsdk }}/microloader", "dest/touch"]
+        ["{{& senchatouchsdk }}/microloader", "dest/touch/microloader"]
     ],
     "extraQuestions": [
         {

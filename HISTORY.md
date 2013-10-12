@@ -1,6 +1,17 @@
 History
 ==========
 
+0.2.1 (2013/10/12)
+-----------------------
+
+* Fix `sencha-touch-app` template file copy bug.
+
+0.2.0 (2013/10/12)
+-----------------------
+
+* Add `sencha-touch-app` template.
+* Rename `web-canvas` to `web-canvas-app` and replace start up content.
+
 0.1.6 (2013/10/3)
 ------------------
 
