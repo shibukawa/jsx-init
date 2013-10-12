@@ -4,10 +4,11 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     srcDir: "src",
-    buildDir: "dest/src",
+    buildDir: "dest",
     libDir: "lib",
     testDir: "test",
     docDir: "doc",
+    senchatouchDir: 'node_modules/sencha-touch.jsx/lib',
 
     watch: {
       build: {
@@ -33,21 +34,21 @@ module.exports = function(grunt) {
 
     jsx: {
       build: {
-        src: ['<%= srcDir %>/*.jsx'],
-        add_search_path: ['<%= libDir %>'],
-        dest: '<%= buildDir %>/',
+        src: ['<%= srcDir %>/app.jsx'],
+        add_search_path: ['<%= libDir %>', '<%= senchatouchDir %>'],
+        dest: '<%= buildDir %>/app.js',
         release: true
       },
 
       test: {
         src: ['<%= testDir %>/*.jsx'],
-        add_search_path: ['<%= libDir %>', '<%= srcDir %>'],
+        add_search_path: ['<%= libDir %>', '<%= srcDir %>', '<%= senchatouchDir %>'],
         test: true
       },
 
       doc: {
         src: ['<%= libDir %>/*.jsx', '<%= srcDir %>/*.jsx'],
-        add_search_path: ['<%= libDir %>', '<%= srcDir %>'],
+        add_search_path: ['<%= libDir %>', '<%= srcDir %>', '<%= senchatouchDir %>'],
         dest: '<%= docDir %>',
         mode: 'doc'
       }

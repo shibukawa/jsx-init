@@ -1,6 +1,6 @@
 {
   "name": "jsx-init",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "This tool helps creating project scaffolding for JSX.",
   "scripts": {
     "prepublish": "grunt build",
@@ -31,7 +31,9 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt": "~0.4.1",
     "grunt-exec": "~0.4.2",
-    "grunt-jsx": ">=0.1.3"
+    "grunt-jsx": ">=0.1.4",
+    "uuid.jsx": ">=0.1.0",
+    "hogan.jsx": ">=0.1.0"
   },
   "author": "Yoshiki Shibukawa",
   "license": "MIT",

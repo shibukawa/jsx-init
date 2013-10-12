@@ -15,6 +15,7 @@ class Setting
     var bitbucketAccount : string;
     var jsxinitDir : string;
     var version : string;
+    var defaultJson : Map.<string>;
 
     function constructor(userDir : string)
     {
@@ -39,29 +40,29 @@ class Setting
                 this.licenses.push(files[i].slice(0, -3));
             }
         }
-        this.author = path.basename(userDir);
-        this.name = path.basename(process.cwd());
+        this.defaultJson = {
+            author: path.basename(userDir),
+            name: path.basename(process.cwd()),
+            OriginalName: path.basename(process.cwd())
+        };
         var settingFilePath = path.resolve(this.jsxinitDir, 'jsxinit.json');
         if (fs.existsSync(settingFilePath))
         {
-            var json = JSON.parse(fs.readFileSync(settingFilePath, 'utf8'));
-            if (json['author'])
+            var json = JSON.parse(fs.readFileSync(settingFilePath, 'utf8')) as Map.<string>;
+            for (var key in json)
             {
-                this.author = json['author'] as string;
+                if (json.hasOwnProperty(key))
+                {
+                    this.defaultJson[key] = json[key];
+                }
             }
-            if (json['mail'])
+            if (json['bitbucketAccount'] && !json['author'])
             {
-                this.mail = json['mail'] as string;
+                this.defaultJson['author'] = json['bitbucketAccount'] as string;
             }
-            if (json['bitbucketAccount'])
+            if (json['githubAccount'] && !json['author'])
             {
-                this.bitbucketAccount = json['bitbucketAccount'] as string;
-                this.author = this.bitbucketAccount;
-            }
-            if (json['githubAccount'])
-            {
-                this.githubAccount = json['githubAccount'] as string;
-                this.author = this.githubAccount;
+                this.defaultJson['author'] = json['githubAccount'] as string;
             }
         }
         this.templates = [] : Template[];
@@ -113,6 +114,47 @@ class Setting
         return result;
     }
 
+    function getExtraQuestions (selectedTemplate : int) : Question[]
+    {
+        var result = [] : Question[];
+        var template = this.templates[selectedTemplate];
+            var questions = template.extraQuestions as variant[];
+            for (var i = 0; i < questions.length; i++)
+            {
+            var json = questions[i] as Map.<variant>;
+            var key = json['key'] as string;
+            var question = json['question'] as string;
+            switch (json['type'] as string)
+            {
+            case 'open':
+                var defaultValue = json['defaultValue'] ? json['default'] as string : '';
+                var allowEmpty = json['allowEmpty'] as boolean;
+                var openQuestion = new OpenQuestion(key, allowEmpty, question, defaultValue);
+                if (json['persistent'])
+                {
+                    openQuestion.setPersistent(true);
+                }
+                result.push(openQuestion);
+                break;
+            case 'path':
+                var defaultValue = json['defaultValue'] ? json['default'] as string : '';
+                var allowEmpty = json['allowEmpty'] as boolean;
+                var pathQuestion = new PathQuestion(key, allowEmpty, question, defaultValue);
+                if (json['persistent'])
+                {
+                    pathQuestion.setPersistent(true);
+                }
+                result.push(pathQuestion);
+                break;
+            case 'select':
+                break;
+            case 'yesno':
+                break;
+            }
+        }
+        return result;
+    }
+
     function getLicenseQuestion (selectedTemplate : int) : Selection
     {
         var licenses = this.getCompatibleLicenseList(selectedTemplate);
@@ -147,15 +189,9 @@ class Setting
         return path.resolve(node.__dirname, '../share/licenses', licenses[licenseIndex] + '.md');
     }
 
-    function save() : void
+    function save (persistentData : Map.<string>) : void
     {
         var settingFilePath = path.resolve(this.jsxinitDir, 'jsxinit.json');
-        var result = {
-            author: this.author,
-            mail: this.mail,
-            githubAccount: this.githubAccount,
-            bitbucketAccount: this.bitbucketAccount
-        };
-        fs.writeFileSync(settingFilePath, JSON.stringify(result, null, 4), 'utf8');
+        fs.writeFileSync(settingFilePath, JSON.stringify(persistentData, null, 4), 'utf8');
     }
 }

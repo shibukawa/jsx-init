@@ -5,6 +5,7 @@ import "nodejs/path.jsx";
 import "nodejs/child_process.jsx";
 import "setting.jsx";
 import "prompt.jsx";
+import "uuid.jsx";
 
 
 class JSXInit
@@ -34,10 +35,12 @@ class JSXInit
         var setting = this.defaultSetting();
 
         console.log("jsx-init: version " + setting.version);
-        console.log("    By Yoshiki Shibukawa (https://github.com/shibukawa/jsx-init");
+        console.log("    By Yoshiki Shibukawa (https://github.com/shibukawa/jsx-init)");
 
-        var prompt = new Prompt();
-        prompt.add(new OpenQuestion('OriginalName', false, 'Project name', setting.name, function (value : string) {
+        var prompt = new Prompt(setting.defaultJson);
+        prompt.addPersistentKeys(['author', 'mail', 'githubAccount', 'bitbucketAccount']);
+
+        prompt.add(new OpenQuestion('OriginalName', false, 'Project name', function (value : string) {
             prompt.setDefault('name', this.normalizeName(value));
             prompt.setDefault('Name', this.symbolName(value));
         }));
@@ -57,37 +60,34 @@ class JSXInit
                 {
                     prompt.setDefault('filebasename', name);
                 }
-                prompt.add(setting.getLicenseQuestion(prompt.get('template') as int));
-                prompt.add(new OpenQuestion('author', false, 'Author name', setting.author, function (value : string) {
+                var templateId = prompt.get('template') as int;
+                prompt.add(setting.getExtraQuestions(templateId));
+                prompt.add(setting.getLicenseQuestion(templateId));
+                prompt.add(new OpenQuestion('author', false, 'Author name', function (value : string) {
                     setting.author = value;
-                    if (setting.mail)
+                    prompt.setDefault('mail', this.normalizeName(value) + '@gmail.com');
+                    var githubAccount = prompt.get('githubAccount');
+                    var bitbucketAccount = prompt.get('bitbucketAccount');
+                    if (githubAccount)
                     {
-                        prompt.setDefault('mail', setting.mail);
+                        prompt.set('repository', 'git://github.com/' + githubAccount as string + '/' + name + '.git');
+                    }
+                    else if (bitbucketAccount)
+                    {
+                        prompt.set('repository', 'git@bitbucket.org:' + bitbucketAccount as string + '/' + name + '.git');
                     }
                     else
                     {
-                        prompt.setDefault('mail', this.normalizeName(value) + '@gmail.com');
-                    }
-                    if (setting.githubAccount)
-                    {
-                        prompt.setDefault('repository', 'git://github.com/' + setting.githubAccount + '/' + name + '.git');
-                    }
-                    else if (setting.bitbucketAccount)
-                    {
-                        prompt.setDefault('repository', 'git@bitbucket.org:' + setting.bitbucketAccount + '/' + name + '.git');
-                    }
-                    else
-                    {
-                        prompt.setDefault('repository', 'git:/github.com/' + this.normalizeName(value) + '/' + name + '.git');
+                        prompt.set('repository', 'git:/github.com/' + this.normalizeName(value) + '/' + name + '.git');
                     }
                 }));
                 prompt.add(new OpenQuestion('mail', true, "Author's mail address", function (value : string) {
                     setting.mail = value;
                 }));
                 prompt.add(new OpenQuestion('repository', true, "Repository URI", function (value : string) {
-                    var bitbucket = value.match(new RegExp('((https://)|(ssh://hg@)|(git@))bitbucket\.org[:/]([\.-_a-zA-Z0-9]+)/([\.-_a-zA-Z0-9]+)(\.git)?'));
-                    var bitbucket_git_https = value.match(new RegExp('https://([\.-_a-zA-Z0-9]+)@bitbucket\.org/([\.-_a-zA-Z0-9]+)/([\.-_a-zA-Z0-9]+)\.git'));
-                    var github = value.match(new RegExp('((https://)|(git@)|(git://))github\.com[:/]([\.-_a-zA-Z0-9]+)/([\.-_a-zA-Z0-9]+)(\.git)?'));
+                    var bitbucket = value.match(new RegExp('((https://)|(ssh://hg@)|(git@))bitbucket\\.org[:/]([-\\._a-zA-Z0-9]+)/([-\\._a-zA-Z0-9]+?)(\\.git)?$'));
+                    var bitbucket_git_https = value.match(new RegExp('https://([\\.-_a-zA-Z0-9]+)@bitbucket\\.org/([-\\._a-zA-Z0-9]+)/([-\\._a-zA-Z0-9]+?)\\.git$'));
+                    var github = value.match(new RegExp('((https://)|(git@)|(git://))github\.com[:/]([-\\._a-zA-Z0-9]+)/([-\\._a-zA-Z0-9]+?)(\\.git)?$'));
                     var issuetracker = '';
                     var homepage = '';
                     prompt.setDefault('repositorytype', 'git');
@@ -137,14 +137,14 @@ class JSXInit
                 prompt.start(function (finish : boolean) : void {
                     if (finish)
                     {
-                        this.write(setting, prompt.getResult());
+                        this.write(setting, prompt.getResult(), prompt.getPersistentData());
                     }
                 });
             }
         });
     }
 
-    function write(setting : Setting, result : Map.<variant>) : void
+    function write(setting : Setting, result : Map.<variant>, persistentData : Map.<string>) : void
     {
         console.log('');
         var template = setting.templates[result['template'] as int];
@@ -154,8 +154,9 @@ class JSXInit
         result['month'] = date.getMonth() + 1;
         result['day'] = date.getDate();
         result['licensename'] = path.basename(license).slice(0, -3);
+        result['UUID'] = UUID.generate();
         template.generate(result, license);
-        setting.save();
+        setting.save(persistentData);
         console.log('\nfinished!');
         console.log(
 '''

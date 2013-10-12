@@ -3,32 +3,44 @@ import "./nodejs/path.jsx";
 
 class fsextra
 {
-    static function copy (srcPath : string, destPath : string) : void
+    static function isDirectory(filepath : string) : boolean
     {
+        if (fs.existsSync(filepath))
+        {
+            var stats = fs.statSync(filepath);
+            return stats.isDirectory();
+        }
+        return false;
+    }
+
+    static function _copy (srcPath : string, destPath : string) : void
+    {
+        if (fsextra.isDirectory(destPath))
+        {
+            var destPath = path.join(destPath, path.basename(srcPath));
+        }
         fs.writeFileSync(destPath, fs.readFileSync(srcPath, 'utf8'), 'utf8');
     }
 
-    static function recursiveCopy (src : string, dest : string) : void
+    static function copy (src : string, dest : string) : void
     {
-        var stats = fs.statSync(src);
-        var basename = path.basename(src);
-        var destpath = path.join(dest, basename);
-
-        if (stats.isDirectory())
+        if (fsextra.isDirectory(src))
         {
-            if (!fs.existsSync(destpath))
+            if (!fs.existsSync(dest))
             {
-                fs.mkdirSync(destpath);
+                fs.mkdirSync(dest);
             }
             var contents = fs.readdirSync(src);
             for (var i = 0; i < contents.length; i++)
             {
-                fsextra.recursiveCopy(path.join(src, contents[i]), destpath);
+                var childSrcPath = path.join(src, contents[i]);
+                var childDestPath = path.join(dest, contents[i]);
+                fsextra.copy(childSrcPath, childDestPath);
             }
         }
         else
         {
-            fsextra.copy(src, destpath);
+            fsextra._copy(src, dest);
         }
     }
 }

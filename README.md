@@ -4,22 +4,29 @@ jsx-init
 Synopsis
 ---------------
 
-This tool helps creating project scaffolding for JSX.
-JSX(http://jsx.github.io/) is a altJS programming language to achieve faster, safer code and make it easier.
+This tool helps to create project scaffolding for [JSX](http://jsx.github.io).
+JSX is an altJS programming language to achieve faster, safer code more easily.
 
-This tool creates folders and copies following contents:
+This tool creates folders and copies the following contents:
 
-* package.json for npm
-* README file
-* License file
-* Build setting file (Grunt)
-* `.gitignore` file
+*   package.json
+
+    Setting file for npm (Node Package Manager)
+
+*   README file
+*   License file
+*   Build settings file for [Grunt](http://gruntjs.com/)
+*   `.gitignore` file
+*   `.npmignore` file
+*   `.travis.yml` file to run test on [travis-ci](https://travis-ci.org/) (optional)
+
+In addition to the above files, the generated folder includes an application source file, a library source file, a test code file and so on. They depend on the project type you select.
 
 Motivation
 ---------------
 
-This tool accelerates to jump in JSX programming. You can start programming, testing, building
-by using generated settings.
+This tool accelerates the start of JSX programming. You can begin programming, testing, building
+by using the generated settings quickly.
 
 Installation
 ---------------
@@ -30,7 +37,7 @@ You can install jsx-init by using npm command:
 $ npm install jsx-init
 ```
 
-You can install to global too.
+You can install globally, too.
 
 ```sh
 $ npm install -g jsx-init
@@ -43,7 +50,7 @@ Run the following command in your working folder:
 
 ```sh
 $ mkdir awesomeproject
-$ cde awesomeproject
+$ cd awesomeproject
 $ jsx-init
 ```
 
@@ -55,23 +62,51 @@ Before running command, creating repository on github or bitbucket is prefered.
 
 * `jsx-lib`: Library for JSX code.
 * `node-app`: node.js cli application.
-* `web-canvas`: HTML5 Canvas application.
+* `web-canvas-app`: HTML5 Canvas application.
+* `sencha-touch-app`: Sencha Touch application. You should download [Sencha Touch SDK](http://www.sencha.com/products/touch) first.
 
-How to develop in the generated project
---------------------------------------------
+The following templates are under planning:
+
+* `js-web-lib`
+* `js-node-lib`
+* `node-express`
+* `chromeapps`
+* `chromeapps-ext.js`
+* `web-ext.js`
+* `web-webgl`
+* `jsfl` and so on.
+
+### Licenses
+
+* Apache-V2
+* BSD-2-Clause
+* BSD-3-Clause
+* GPL-V2
+* GPL-V3
+* MIT
+* Public-Domain
+
+How to develop within the generated project
+----------------------------------------------
+
+Before doing something, type the following command to install build tools (JSX compiler, Grunt task runner, grunt-jsx):
+
+```sh
+$ npm install
+```
 
 Add source files under the `lib` folder and `src` folder and add tests under the `test` folder.
 `lib` folder is for library files and `src` folder is for executable source files.
-Reusable modules should be in `lib` folder.
+Reusable modules should be in the `lib` folder.
 
-You can run test by using prove command:
+You can run tests by using the following command:
 
 ```sh
 # Run test (-v shows detail error information)
 $ grunt test
 ```
 
-Following default Grunt commands are available:
+The following default Grunt commands are available:
 
 ```sh
 # Generate API reference
@@ -81,18 +116,34 @@ $ grunt doc
 $ grunt build
 ```
 
-If there are some needed modules, use `npm` command:
+Some templates (`web-canvas-app` and `sencha-touch-app`) includes setting to run local web server.
+You can run your application on Google Chrome, that can't allow access to local file directly:
+
+```
+$ grunt connect
+Running "connect:server" (connect) task
+Waiting forever...
+Started connect web server on 127.0.0.1:8080.
+```
+
+If there are some additional packages needed, use `npm` command:
 
 ``sh
+# Needed package for runtime
 $ npm install <package> --save
+# Needed package for development
+$ npm install <package> --save-dev
 ``
+
+If you use any JSX library to wrap an exisiting JS library, JS library should be installed with `--save` option.
+All JSX libraries should be installed with `--save-dev` option.
 
 Publish to github
 --------------------
 
 Before publishing, update synopsis and other descriptions to `README.md`.
 
-After creating project repository on github, you can register files to repository like this:
+After creating the project repository on github, you can register files to the repository like this:
 
 ```sh
 $ git init
@@ -105,11 +156,23 @@ $ git push -u origin master
 Publish to npm
 ------------------
 
-Update `package.json` version string then type following command:
+Update `package.json` version string then type the following command:
 
 ```sh
 $ npm publish
 ```
+
+### For Applications
+
+Run `grunt build` before publishing.
+
+### For JSX Libraries
+
+Run `grunt doc` before publishing
+
+### For JS Libraries
+
+Run `grunt doc` before publishing
 
 Development jsx-init
 -----------------------
@@ -119,21 +182,11 @@ Development jsx-init
 * Repository: git@github.com:shibukawa/jsx-init.git
 * Issues: https://github.org/shibukawa/jsx-init/issues
 
-## Run Test
-
 ```sh
+# Run test
 $ grunt test
-```
-
-## Build
-
-```sh
-# Build application or library for JS project
+# Build jsx-init command
 $ grunt build
-
-# Generate API reference
-$ grunt doc
-
 ```
 
 Author
@@ -144,9 +197,13 @@ Author
 License
 ------------
 
-MIT
+This code is licensed under MIT.
 
 Complete license is written in `LICENSE.md`.
+
+### Exception
+
+`sencha-touch-app/dest` folder contains many content generated by `sencha-cmd`. Use these content only for Sencha Touch application.
 
 Reference
 --------------
@@ -158,11 +215,11 @@ Reference
 Thanks
 ------------
 
-*   JSX guys are cool guys! Thank you `@kazuho`, `@__gfx__`, `@wasabiz`!
+*   JSX guys are cool guys! Thank you `@kazuho`, `@__gfx__`, `@wasabiz`! And `web-canvas-app` sample is based on `@__gfx__`'s Danmaku application.
 
-*   grunt-jsx simplify grunt setting file. Thank you `@yosuke_furukawa`!
+*   grunt-jsx simplifies grunt setting file. Thank you `@yosuke_furukawa`!
 
-*   README.md templates were created from following template:
+*   README.md templates were created from the following template:
 
     https://gist.github.com/jxson/1784669
 

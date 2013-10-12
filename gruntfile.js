@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     jsx: {
       build: {
         src: ['<%= srcDir %>/jsx-init.jsx'],
-        add_search_path: ['<%= libDir %>'],
+        add_search_path: ['<%= libDir %>', './node_modules/uuid.jsx/lib/', './node_modules/hogan.jsx/lib/'],
         dest: '<%= buildDir %>/',
         executable: 'node',
         release: true

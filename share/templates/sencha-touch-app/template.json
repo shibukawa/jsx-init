@@ -3,9 +3,11 @@
     "description": "includes: JSX source file, sencha-touch library and wrapper, html, css, web server setting to run on Chrome.",
     "dirs": [
         "dest",
+        "dest/resources",
         "dest/cmd",
         "dest/packages",
         "dest/touch",
+        "dest/touch/cmd",
         "src",
         "src/controller",
         "src/form",
@@ -32,10 +34,10 @@
         ".travis.yml",
         "gruntfile.js",
         "src/ext-boot.jsx",
-        "src/views/main.jsx",
+        "src/view/main.jsx",
         "dest/touch/cmd/sencha.cfg",
         "dest/__dot__sencha",
-        ["{{& senchatouchsdk }}/resources", ""],
+        "dest/resources",
         ["{{& senchatouchsdk }}/src", "dest/touch"],
         ["{{& senchatouchsdk }}/sencha-touch-all-debug.js", "dest/touch"],
         ["{{& senchatouchsdk }}/sencha-touch-all.js", "dest/touch"],
@@ -59,7 +61,8 @@
             "type": "path",
             "question": "Android SDK directory",
             "default": "~/android-sdk",
-            "persistent": true
+            "persistent": true,
+            "allowEmpty": true
         }
     ],
     "licenses": false
