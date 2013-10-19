@@ -296,7 +296,7 @@ class Selection extends Question
 
     function constructor(key : string, question : string, selectionList : string, selections : int) {
         this._key = key;
-        this._question = question;
+        this._question = question + ' [1-' + (selections as string) + ']';
         this._firstMessage = '\n' + selectionList + '\n';
         this._selections = selections;
         this._defaultValue = '';

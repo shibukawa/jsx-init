@@ -6,6 +6,12 @@ Synopsis
 
 {{& description }}
 
+Motivation
+---------------
+
+Write a short description of the motivation behind the creation and maintenance of the project.
+This should explain why the project exists.
+
 Code Example
 ---------------
 
@@ -19,12 +25,6 @@ class _Main {
     }
 }
 ```
-
-Motivation
----------------
-
-Write a short description of the motivation behind the creation and maintenance of the project.
-This should explain why the project exists.
 
 Installation
 ---------------
@@ -52,14 +52,16 @@ Development
 $ grunt test
 ```
 
-## Build
+## Build Sample
 
 ```sh
-# Generate API reference
-$ grunt doc
-
-# Build application or library for JS project
 $ grunt build
+```
+
+## Generate API reference
+
+```sh
+$ grunt doc
 ```
 
 Author

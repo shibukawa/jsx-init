@@ -1,0 +1,40 @@
+{
+  "name": "{{& name }}",
+  "version": "{{& version }}",
+  "description": "{{& description }}",
+  "scripts": {
+    "build": "grunt build",
+    "test": "grunt test",
+    "doc": "grunt doc"
+  },
+  "main": "dest/src/{{& name }}.js",
+  "engines" : { "node" : ">=0.8.0" },
+  "keywords": [
+    "jsx",
+    "altjs",
+    "js",
+    "web",
+    "webworker"
+  ],
+  "homepage": "{{& homepage }}",
+  "bugs": {
+    "url": "{{& issuetracker }}"
+  },
+  "directories": {
+    "doc": "./doc",
+    "lib": "./dest/src"
+  },
+  "repository": {
+    "type": "{{& repositorytype}}",
+    "url": "{{& repository }}"
+  },
+  "devDependencies": {
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt": "~0.4.1",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-jsx": ">=0.1.5",
+    "webworker.jsx": ">=0.1.0"
+  },
+  "author": "shibu",
+  "license": "MIT"
+}

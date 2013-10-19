@@ -14,6 +14,7 @@
 
 import "console.jsx";
 import "js/nodejs.jsx";
+import "getopt.jsx";
 
 /**
  * [sample] Sample class to use node.js
@@ -39,7 +40,34 @@ class _Main {
     {
         console.log("Hello World");
 
-        var writer = new FileWriter();
-        writer.write('test.txt');
+        var parser = new BasicParser('h(help)', argv);
+        var help = false;
+        var filenames = [] : string[];
+
+        var opt = parser.getopt();
+        while (opt)
+        {
+            switch (opt.option)
+            {
+            case 'h':
+                help = true;
+                break;
+            default:
+                filenames.push(opt.option);
+            }
+            opt = parser.getopt();
+        }
+        if (help)
+        {
+            console.log("Write help message here");
+        }
+        else
+        {
+            for (var i = 0; i < filenames.length; i++)
+            {
+                var writer = new FileWriter();
+                writer.write(filenames[i]);
+            }
+        }
     }
 }

@@ -60,15 +60,15 @@ Before running command, creating repository on github or bitbucket is prefered.
 
 ### Templates
 
+* `js-lib` : Library for JS environment (common.js, AMD, Closure, etc). It can be used from JSX too.
 * `jsx-lib`: Library for JSX code.
 * `node-app`: node.js cli application.
 * `web-canvas-app`: HTML5 Canvas application.
-* `sencha-touch-app`: Sencha Touch application. You should download [Sencha Touch SDK](http://www.sencha.com/products/touch) first.
+* `sencha-touch-app`: Sencha Touch application. You should download [Sencha Touch SDK](http://www.sencha.com/products/touch) first (experimental).
+* `webworker`: WebWorker program.
 
 The following templates are under planning:
 
-* `js-web-lib`
-* `js-node-lib`
 * `node-express`
 * `chromeapps`
 * `chromeapps-ext.js`

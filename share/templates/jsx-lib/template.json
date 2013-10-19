@@ -1,6 +1,6 @@
 {
     "comment": "@@@@@ This file is used from jsx-init. Not installed to generated program @@@@@",
-    "description": "includes: folder for library, unit test, sample app template.",
+    "description": "Shareable JSX library. It is good for wrapper library to existing JS code.",
     "dirs": ["lib", "test", "doc", "samples"],
     "templates":
     [

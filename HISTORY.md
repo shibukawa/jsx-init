@@ -1,6 +1,14 @@
 History
 ==========
 
+0.3.0 (2013/10/19)
+-----------------------
+
+* Add `js-lib` and `webworker` template.
+* Upgrade grunt-jsx to 0.1.5 to use jsx-linker support.
+* Rewrite README.md templates.
+* Add getopt.jsx code in `node-app` template.
+
 0.2.1 (2013/10/12)
 -----------------------
 

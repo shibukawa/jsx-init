@@ -1,6 +1,6 @@
 {
     "comment": "@@@@@ This file is used from jsx-init. Not installed to generated program @@@@@",
-    "description": "includes: JSX source file, sencha-touch library and wrapper, html, css, web server setting to run on Chrome.",
+    "description": "Sencha Touch application for smart phones (experimental)",
     "dirs": [
         "dest",
         "dest/resources",

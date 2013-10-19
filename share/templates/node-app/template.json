@@ -1,6 +1,6 @@
 {
     "comment": "@@@@@ This file is used from jsx-init. Not installed to generated program @@@@@",
-    "description": "includes: command line tool source file, folder for library and unit test.",
+    "description": "Command line program on node.js.",
     "dirs": ["bin", "src", "lib", "test", "doc"],
     "templates":
     [

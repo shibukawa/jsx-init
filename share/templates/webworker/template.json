@@ -1,0 +1,23 @@
+{
+    "comment": "@@@@@ This file is used from jsx-init. Not installed to generated program @@@@@",
+    "description": "WebWorker program.",
+    "dirs": ["dest", "dest/css", "dest/src", "src", "lib", "sample", "test", "doc"],
+    "templates":
+    [
+        "README.md",
+        "HISTORY.md",
+        "package.json",
+        "src/__name__.jsx",
+        "test/test-__name__.jsx",
+        "gruntfile.js"
+    ],
+    "copyfiles": [
+        "__dot__gitignore",
+        ".npmignore",
+        ".travis.yml",
+        "dest/index.html",
+        "dest/css/style.css",
+        "gruntfile.js"
+    ],
+    "licenses": false
+}

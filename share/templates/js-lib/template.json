@@ -1,0 +1,16 @@
+{
+    "comment": "@@@@@ This file is used from jsx-init. Not installed to generated program @@@@@",
+    "description": "Shareable library for AMD, CommonJS, Closure, and JSX environment.",
+    "dirs": ["lib", "dest", "src", "test", "doc", "samples"],
+    "templates":
+    [
+        "README.md",
+        "HISTORY.md",
+        "package.json",
+        "src/__name__.jsx",
+        "samples/__name__-sample.jsx",
+        "test/test-__name__.jsx"
+    ],
+    "copyfiles": ["__dot__gitignore", ".npmignore", ".travis.yml", "gruntfile.js"],
+    "licenses": false
+}

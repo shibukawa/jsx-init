@@ -6,6 +6,7 @@ import "nodejs/child_process.jsx";
 import "setting.jsx";
 import "prompt.jsx";
 import "uuid.jsx";
+import "getopt.jsx";
 
 
 class JSXInit
@@ -28,6 +29,69 @@ class JSXInit
         var userDir = this.userDir();
         var setting = new Setting(userDir);
         return setting;
+    }
+
+    function checkOption(argv : string[]) : boolean
+    {
+
+        var parser = new BasicParser('h(help)', argv);
+
+        var help = false;
+
+        var opt = parser.getopt();
+        while (opt)
+        {
+            if (opt.option == 'h')
+            {
+                help = true;
+            }
+            opt = parser.getopt();
+        }
+        if (help)
+        {
+            var setting = this.defaultSetting();
+
+            console.log("jsx-init: version " + setting.version);
+            console.log("    By Yoshiki Shibukawa (https://github.com/shibukawa/jsx-init)");
+            console.log('''
+$ jsx-init [options]
+
+options:
+  -h, --help             : show this message
+
+This program generates JSX project template.
+The following step is a recommendation step:
+
+1. Cteate new repository on Github or Bitbucket.
+
+2. Create folder that has folder name that is as same as a planned package name.
+
+   $ mkdir awesome.jsx
+
+3. Move into the folder.
+
+   $ cd awesome.jsx
+
+4. Launch jsx-init without option.
+
+   $ jsx-init
+
+jsx-init asks you to create project template like project name, repository URL,
+license type and so on.
+
+There are three types of questions:
+
+1. Open Question: Names, URL, and so on. The string in [ ] block is default.
+2. Selection: Select by using number. It is used for project type or license.
+3. Yes/No: y/Y/yes/Yes become yes.
+
+Supported Template:
+''');
+            console.log(setting.getTemplateDescriptions().join('\n'));
+            console.log('\nEnjoy!');
+            return false;
+        }
+        return true;
     }
 
     function start() : void
@@ -78,7 +142,7 @@ class JSXInit
                     }
                     else
                     {
-                        prompt.set('repository', 'git:/github.com/' + this.normalizeName(value) + '/' + name + '.git');
+                        prompt.set('repository', 'git://github.com/' + this.normalizeName(value) + '/' + name + '.git');
                     }
                 }));
                 prompt.add(new OpenQuestion('mail', true, "Author's mail address", function (value : string) {
@@ -206,6 +270,9 @@ class _Main
     static function main (argv : string[]) : void
     {
         var init = new JSXInit();
-        init.start();
+        if (init.checkOption(argv))
+        {
+            init.start();
+        }
     }
 }

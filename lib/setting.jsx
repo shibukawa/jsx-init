@@ -88,7 +88,7 @@ class Setting
         }
     }
 
-    function getTemplateQuestion() : Selection
+    function getTemplateDescriptions() : string[]
     {
         var maxLength = -1000;
         for (var i = 0; i < this.templates.length; i++)
@@ -108,7 +108,12 @@ class Setting
             str.push(' - ' + template.description);
             description.push(str.join(''));
         }
+        return description;
+    }
 
+    function getTemplateQuestion() : Selection
+    {
+        var description = this.getTemplateDescriptions();
         var result = new Selection('template', 'What type of project do you want to create?',
                 description.join('\n'), this.templates.length);
         return result;
