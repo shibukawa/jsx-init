@@ -13,8 +13,10 @@
   "engines" : { "node" : ">=0.8.0" },
   "keywords": [
     "jsx",
+    "altjs",
     "web",
-    "canvas"
+    "smartphone",
+    "senchatouch"
   ],
   "homepage": "{{& homepage }}",
   "bugs": {

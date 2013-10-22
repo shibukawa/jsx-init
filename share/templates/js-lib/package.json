@@ -10,7 +10,13 @@
   "engines" : { "node" : ">=0.8.0" },
   "keywords": [
     "jsx",
-    "lib"
+    "altjs",
+    "lib",
+    "js",
+    "amd",
+    "commonjs",
+    "nodejs",
+    "browser"
   ],
   "main": "./lib/{{& filebasename}}.jsx",
   "homepage": "{{& homepage }}",

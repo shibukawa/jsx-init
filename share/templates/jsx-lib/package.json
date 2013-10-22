@@ -10,6 +10,7 @@
   "engines" : { "node" : ">=0.8.0" },
   "keywords": [
     "jsx",
+    "altjs",
     "lib"
   ],
   "main": "./lib/{{& filebasename}}.jsx",

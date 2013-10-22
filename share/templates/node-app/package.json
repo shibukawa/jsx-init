@@ -14,6 +14,10 @@
   "engines" : { "node" : ">=0.8.0" },
   "keywords": [
     "jsx",
+    "altjs",
+    "commonjs",
+    "nodejs",
+    "cli",
     "app"
   ],
   "homepage": "{{& homepage }}",

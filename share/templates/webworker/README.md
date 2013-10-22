@@ -110,6 +110,8 @@ quickly.
 
 ## Setup build environment
 
+To create development environment, call following command:
+
 ```sh
 $ npm install
 ```
