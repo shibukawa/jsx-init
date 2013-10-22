@@ -45,9 +45,9 @@ quickly.
 * JSX includes optimizer. You don't have to write tricky unreadalbe code for speed.
 * You can use almost all JavaScript API as you know. Some functions become static class functions. See [reference](http://jsx.github.io/doc/stdlibref.html).
 
-To create development environment, call following command:
-
 ## Setup
+
+To create development environment, call following command:
 
 ```sh
 $ npm install

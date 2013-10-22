@@ -50,7 +50,7 @@ define(['{{& name}}'], function ({{& name}}) {
 
 ```html
 <script src="{{& filebasename }}.js}}" type="text/javascript"></script>
-<script type="text/javascript>
+<script type="text/javascript">
 window.onload = function () {
     var classObj = JSX.require("src/{{& filebasename }}.js").{{& name }};
     var obj = new classObj();
@@ -62,7 +62,7 @@ window.onload = function () {
 
 ```html
 <script src="{{& filebasename }}.global.js}}" type="text/javascript"></script>
-<script type="text/javascript>
+<script type="text/javascript">
 window.onload = function () {
     var obj = new {{& filebasename }}.{{& name }}();
 });
@@ -94,9 +94,9 @@ quickly.
 * JSX includes optimizer. You don't have to write tricky unreadalbe code for speed.
 * You can use almost all JavaScript API as you know. Some functions become static class functions. See [reference](http://jsx.github.io/doc/stdlibref.html).
 
-To create development environment, call following command:
-
 ## Setup
+
+To create development environment, call following command:
 
 ```sh
 $ npm install
