@@ -29,9 +29,9 @@ module.exports = function(grunt) {
       },
 
       commonjs: {
-        src: ['src/*.jsx'],
+        src: ['lib/*.jsx'],
         output_rule: {
-            regexp: /src\/(.+)\.jsx/,
+            regexp: /lib\/(.+)\.jsx/,
             replace: 'dest\/$1.common.js'
         },
         add_search_path: ['<%= libDir %>'],
@@ -41,9 +41,9 @@ module.exports = function(grunt) {
       },
 
       amd: {
-        src: ['src/*.jsx'],
+        src: ['lib/*.jsx'],
         output_rule: {
-            regexp: /src\/(.+)\.jsx/,
+            regexp: /lib\/(.+)\.jsx/,
             replace: 'dest\/$1.amd.js'
         },
         add_search_path: ['<%= libDir %>'],
@@ -53,9 +53,9 @@ module.exports = function(grunt) {
       },
 
       closure: {
-        src: ['src/*.jsx'],
+        src: ['lib/*.jsx'],
         output_rule: {
-            regexp: /src\/(.+)\.jsx/,
+            regexp: /lib\/(.+)\.jsx/,
             replace: 'dest\/$1.closure.js'
         },
         add_search_path: ['<%= libDir %>'],
@@ -65,9 +65,9 @@ module.exports = function(grunt) {
       },
 
       global: {
-        src: ['src/*.jsx'],
+        src: ['lib/*.jsx'],
         output_rule: {
-            regexp: /src\/(.+)\.jsx/,
+            regexp: /lib\/(.+)\.jsx/,
             replace: 'dest\/$1.global.js'
         },
         add_search_path: ['<%= libDir %>'],
@@ -77,9 +77,9 @@ module.exports = function(grunt) {
       },
 
       standard: {
-        src: ['src/*.jsx'],
+        src: ['lib/*.jsx'],
         output_rule: {
-            regexp: /src\/(.+)\.jsx/,
+            regexp: /lib\/(.+)\.jsx/,
             replace: 'dest\/$1.js'
         },
         add_search_path: ['<%= libDir %>'],

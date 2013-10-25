@@ -1,6 +1,6 @@
 {
   "name": "jsx-init",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "This tool helps creating project scaffolding for JSX.",
   "scripts": {
     "prepublish": "grunt build",

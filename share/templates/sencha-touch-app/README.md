@@ -37,7 +37,7 @@ Development
 
 ## JSX
 
-Don't afraid [JSX](http://jsx.github.io)! If you have an experience of JavaScript, you can learn JSX
+Don't be afraid [JSX](http://jsx.github.io)! If you have an experience of JavaScript, you can learn JSX
 quickly.
 
 * Static type system and unified class syntax.
