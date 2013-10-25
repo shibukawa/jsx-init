@@ -1,6 +1,13 @@
 History
 ==========
 
+0.3.2 (2013/10/24)
+-----------------------
+
+* Fix templates' English grammer
+* Fix js-lib template's directory structure
+* Fix templates' .npmignore
+
 0.3.1 (2013/10/22)
 -----------------------
 
