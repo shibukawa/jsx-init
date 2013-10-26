@@ -49,7 +49,7 @@ define(['{{& name}}'], function ({{& name}}) {
 ### Use via standard JSX function
 
 ```html
-<script src="{{& filebasename }}.js}}" type="text/javascript"></script>
+<script src="{{& filebasename }}.js" type="text/javascript"></script>
 <script type="text/javascript">
 window.onload = function () {
     var classObj = JSX.require("src/{{& filebasename }}.js").{{& name }};
@@ -61,10 +61,10 @@ window.onload = function () {
 ### Use via global variables
 
 ```html
-<script src="{{& filebasename }}.global.js}}" type="text/javascript"></script>
+<script src="{{& filebasename }}.global.js" type="text/javascript"></script>
 <script type="text/javascript">
 window.onload = function () {
-    var obj = new {{& filebasename }}.{{& name }}();
+    var obj = new {{& name }}();
 });
 </script>
 ```
