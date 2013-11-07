@@ -4,17 +4,18 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     sampleDir: "samples",
-    libDir: "lib",
+    srcDir: "src",
+    libDirs: ["<%= srcDir %>", "node_modules/*/src"],
     testDir: "test",
     docDir: "doc",
 
     watch: {
       sample: {
-        files: ['<%= sampleDir %>/*.jsx', '<%= libDir %>/*.jsx'],
+        files: ['<%= sampleDir %>/*.jsx', '<%= srcDir %>/*.jsx'],
         tasks: ['jsx:build']
       },
       test: {
-        files: ['<%= testDir %>/*.jsx', '<%= libDir %>'],
+        files: ['<%= testDir %>/*.jsx', '<%= srcDir %>'],
         tasks: ['jsx:test']
       }
     },
@@ -22,20 +23,20 @@ module.exports = function(grunt) {
     jsx: {
       build: {
         src: ['<%= sampleDir %>/*.jsx'],
-        add_search_path: ['<%= libDir %>'],
+        add_search_path: libDirs,
         dest: '<%= sampleDir %>/',
         executable: 'node'
       },
 
       test: {
         src: ['<%= testDir %>/*.jsx'],
-        add_search_path: ['<%= libDir %>'],
+        add_search_path: libDirs,
         test: true
       },
 
       doc: {
-        src: ['<%= libDir %>/*.jsx'],
-        add_search_path: ['<%= libDir %>'],
+        src: ['<%= srcDir %>/*.jsx'],
+        add_search_path: libDirs,
         dest: '<%= docDir %>',
         mode: 'doc'
       }

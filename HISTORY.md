@@ -1,6 +1,13 @@
 History
 ==========
 
+0.4.0 (2013/11/07)
+-----------------------
+
+* Fix project folder structure
+* Add dependency for grunt-cli
+* Add more detail descriptions to use from JSX for js-lib, jsx-lib
+
 0.3.3 (2013/10/25)
 -----------------------
 

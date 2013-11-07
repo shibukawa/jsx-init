@@ -1,7 +1,7 @@
 {
     "comment": "@@@@@ This file is used from jsx-init. Not installed to generated program @@@@@",
     "description": "Command line program on node.js.",
-    "dirs": ["bin", "src", "lib", "test", "doc"],
+    "dirs": ["bin", "src", "lib", "test", "doc", "dest"],
     "templates":
     [
         "README.md",

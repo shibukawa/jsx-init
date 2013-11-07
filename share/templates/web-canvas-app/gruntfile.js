@@ -34,7 +34,7 @@ module.exports = function(grunt) {
     jsx: {
       build: {
         src: ['<%= srcDir %>/*.jsx'],
-        add_search_path: ['<%= libDir %>'],
+        add_search_path: ['<%= libDir %>', 'node_modules/*/src'],
         dest: '<%= buildDir %>/',
         executable: 'web',
         release: true
@@ -42,12 +42,12 @@ module.exports = function(grunt) {
 
       test: {
         src: ['<%= testDir %>/*.jsx'],
-        add_search_path: ['<%= libDir %>', '<%= srcDir %>'],
+        add_search_path: ['<%= libDir %>', '<%= srcDir %>', 'node_modules/*/src'],
         test: true
       },
 
       doc: {
-        src: ['<%= libDir %>/*.jsx', '<%= srcDir %>/*.jsx'],
+        src: ['<%= libDir %>/*.jsx', '<%= srcDir %>/*.jsx', 'node_modules/*/src'],
         add_search_path: ['<%= libDir %>', '<%= srcDir %>'],
         dest: '<%= docDir %>',
         mode: 'doc'

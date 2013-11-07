@@ -7,7 +7,7 @@
         "README.md",
         "HISTORY.md",
         "package.json",
-        "lib/__name__.jsx",
+        "src/__name__.jsx",
         "samples/__name__-sample.jsx",
         "test/test-__name__.jsx"
     ],

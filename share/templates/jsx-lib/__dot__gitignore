@@ -1,7 +1,2 @@
-## ignore ##
 /node_modules/
-/samples/
 /doc/
-
-## allow ##
-!/samples/*.jsx

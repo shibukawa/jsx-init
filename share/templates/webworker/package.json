@@ -3,9 +3,9 @@
   "version": "{{& version }}",
   "description": "{{& description }}",
   "scripts": {
-    "build": "grunt build",
-    "test": "grunt test",
-    "doc": "grunt doc"
+    "build": "./node_modules/.bin/grunt build",
+    "test": "./node_modules/.bin/grunt test",
+    "doc": "./node_modules/.bin/grunt doc"
   },
   "main": "dest/src/{{& name }}.js",
   "engines" : { "node" : ">=0.8.0" },
@@ -32,8 +32,9 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt": "~0.4.1",
     "grunt-contrib-connect": "~0.5.0",
+    "grunt-cli": "~0.1.10",
     "grunt-jsx": ">=0.1.5",
-    "webworker.jsx": ">=0.1.0"
+    "webworker.jsx": ">=0.2.0"
   },
   "author": "shibu",
   "license": "MIT"

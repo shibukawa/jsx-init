@@ -31,7 +31,7 @@ class _Main {
 ### Use from node.js
 
 ```js
-var {{& name }} = require('{{& filebasename }}.common.js').{{& name}};
+var {{& name }} = require('{{& filebasename }}.common.js').{{& filebasename }};
 
 // Write simple usage here!
 ```
@@ -40,7 +40,7 @@ var {{& name }} = require('{{& filebasename }}.common.js').{{& name}};
 
 ```js
 // use {{& filebasename }}.amd.js
-define(['{{& name}}'], function ({{& name}}) {
+define(['{{& filebasename }}'], function ({{& filebasename }}) {
 
     // Write simple usage here!
 });
@@ -52,7 +52,7 @@ define(['{{& name}}'], function ({{& name}}) {
 <script src="{{& filebasename }}.js" type="text/javascript"></script>
 <script type="text/javascript">
 window.onload = function () {
-    var classObj = JSX.require("src/{{& filebasename }}.js").{{& name }};
+    var classObj = JSX.require("src/{{& filebasename }}.js").{{& filebasename }};
     var obj = new classObj();
 });
 </script>
@@ -64,7 +64,7 @@ window.onload = function () {
 <script src="{{& filebasename }}.global.js" type="text/javascript"></script>
 <script type="text/javascript">
 window.onload = function () {
-    var obj = new {{& name }}();
+    var obj = new {{& filebasename }}();
 });
 </script>
 ```
@@ -73,8 +73,27 @@ Installation
 ---------------
 
 ```sh
-$ npm install {{& name}}
+$ npm install {{& name }}
 ```
+
+If you want to use this library from other JSX project, install like the following:
+
+```sh
+$ npm install {{& name}} --save-dev
+```
+
+or add like these lines to your parent project's `package.json`:
+
+```js
+   devDependencies: {
+       "{{& name }}": "~0.1.0"
+   },
+   peerDepenencies: {
+       "{{& name }}": "~0.1.0"
+   }
+```
+
+And add `node_modules/{{& name }}/src` as a search path.
 
 API Reference
 ------------------
