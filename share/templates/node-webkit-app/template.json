@@ -1,15 +1,17 @@
 {
     "comment": "@@@@@ This file is used from jsx-init. Not installed to generated program @@@@@",
-    "description": "Shareable JSX library. It is good for wrapper library to existing JS code.",
-    "dirs": ["src", "test", "doc", "samples"],
+    "description": "GUI program on node-webkit.",
+    "dirs": ["src", "test", "doc", "appsrc", "build"],
     "templates":
     [
         "README.md",
         "HISTORY.md",
         "package.json",
-        "src/__name__.jsx",
-        "samples/__name__-sample.jsx",
-        "test/test-__name__.jsx"
+        "src/app.jsx",
+        "test/test-__name__.jsx",
+        "appsrc/Credits.html",
+        "appsrc/index.html",
+        "appsrc/package.json"
     ],
     "copyfiles": ["__dot__gitignore", ".npmignore", ".travis.yml", "gruntfile.js"],
     "licenses": false

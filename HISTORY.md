@@ -1,6 +1,13 @@
 History
 ==========
 
+0.5.0 (2014/04/08)
+-----------------------
+
+* Update template to use JSX's `node_modules` support.
+* Add `node-webkit-app` template.
+* Import license files from [markown-licenses](https://github.com/IQAndreas/markdown-licenses). AGPL, MPL, EPL and so on are added.
+
 0.4.0 (2013/11/07)
 -----------------------
 

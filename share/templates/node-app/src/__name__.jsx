@@ -1,5 +1,5 @@
 /**
- * {{& OriginalName }}
+ * {{& Name }}
  *
  * {{& description }}
  *

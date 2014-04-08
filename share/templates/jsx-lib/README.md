@@ -39,19 +39,6 @@ If you want to use this library from other project, install like the following:
 $ npm install {{& name}} --save-dev
 ```
 
-or add like these lines to your parent project's `package.json`:
-
-```js
-   devDependencies: {
-       "{{& name }}": "~0.1.0"
-   },
-   peerDepenencies: {
-       "{{& name }}": "~0.1.0"
-   }
-```
-
-And add `node_modules/{{& name }}/src` as a search path.
-
 API Reference
 ------------------
 

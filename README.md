@@ -63,6 +63,7 @@ Before running command, creating repository on github or bitbucket is prefered.
 * `js-lib` : Library for JS environment (common.js, AMD, Closure, etc). It can be used from JSX too.
 * `jsx-lib`: Library for JSX code.
 * `node-app`: node.js cli application.
+* `node-webkit-app`: node-webkit GUI application.
 * `web-canvas-app`: HTML5 Canvas application.
 * `sencha-touch-app`: Sencha Touch application. You should download [Sencha Touch SDK](http://www.sencha.com/products/touch) first (experimental).
 * `webworker`: WebWorker program.
@@ -78,13 +79,21 @@ The following templates are under planning:
 
 ### Licenses
 
-* Apache-V2
-* BSD-2-Clause
-* BSD-3-Clause
-* GPL-V2
-* GPL-V3
-* MIT
-* Public-Domain
+* Apache License v2.0
+* The Artistic License v2.0
+* Simplified BSD License (BSD 2-clause)
+* Modified BSD License (BSD 3-clause)
+* Eclipse Public License (EPL) v1.0
+* GNU Affero General Public License (AGPL) v3.0
+* GNU Free Documentation License (FDL) v1.3
+* GNU General Public License (GPL) v1.0
+* GNU General Public License (GPL) v2.0
+* GNU General Public License (GPL) v3.0
+* GNU Lesser General Public License (LGPL) v2.1
+* GNU Lesser General Public License (LGPL) v3.0
+* The MIT License (MIT)
+* Mozilla Public License (MPL) v2.0
+* The Unlicense (Public Domain)
 
 How to develop within the generated project
 ----------------------------------------------
@@ -223,10 +232,4 @@ Thanks
 
     https://gist.github.com/jxson/1784669
 
-*   MIT and GPLv2 license files are copied and modified from here:
-
-    https://github.com/nevir/readable-licenses
-
-*   Other licenses are copied and modifed from here:
-
-    http://choosealicense.com/licenses/
+*   Now, all license files are came from Andreas Renberg (IQAndreas)'s [markdown-licenses](https://github.com/IQAndreas/markdown-licenses).

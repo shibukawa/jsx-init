@@ -217,7 +217,7 @@ Supported Template:
         result['year'] = date.getFullYear();
         result['month'] = date.getMonth() + 1;
         result['day'] = date.getDate();
-        result['licensename'] = path.basename(license).slice(0, -3);
+        result['licensename'] = setting.getLicenseName(result['template'] as int, result['license'] as int);
         result['UUID'] = UUID.generate();
         template.generate(result, license);
         setting.save(persistentData);

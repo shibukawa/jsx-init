@@ -7,7 +7,8 @@ import "template.jsx";
 class Setting
 {
     var templates : Template[];
-    var licenses: string[];
+    var licenses : string[];
+    var licenseNames : string[];
     var name : string;
     var author : string;
     var mail : string;
@@ -31,13 +32,25 @@ class Setting
         this.getTemplateDirs(path.resolve(node.__dirname, '../share/templates'), templates);
         this.getTemplateDirs(path.join(userDir, '.jsxinit'), templates);
 
+        var licenseAltNameSrc = fs.readFileSync(path.resolve(node.__dirname, '../share/licenses/license.json'), 'utf8');
+        var licenseAltNames = JSON.parse(licenseAltNameSrc) as Map.<string>;
         var files = fs.readdirSync(path.resolve(node.__dirname, '../share/licenses'));
         this.licenses = [] : string[];
+        this.licenseNames = [] : string[];
         for (var i = 0; i < files.length; i++)
         {
             if (path.extname(files[i]) == '.md')
             {
-                this.licenses.push(files[i].slice(0, -3));
+                var filename = files[i];
+                this.licenses.push(filename.slice(0, -3));
+                if (licenseAltNames[filename])
+                {
+                    this.licenseNames.push(licenseAltNames[filename]);
+                }
+                else
+                {
+                    this.licenseNames.push(filename.slice(0, -3));
+                }
             }
         }
         this.defaultJson = {
@@ -164,9 +177,9 @@ class Setting
     {
         var licenses = this.getCompatibleLicenseList(selectedTemplate);
         var description = [] : string[];
-        for (var i = 0; i < licenses.length; i++)
+        for (var i = 0; i < this.licenseNames.length; i++)
         {
-            description.push((i + 1) + ': ' + licenses[i]);
+            description.push((i + 1) + ': ' + this.licenseNames[i]);
         }
         var result = new Selection('license', 'Which license do you use?',
                 description.join('\n'), licenses.length);
@@ -192,6 +205,14 @@ class Setting
     {
         var licenses = this.getCompatibleLicenseList(selectedTemplate);
         return path.resolve(node.__dirname, '../share/licenses', licenses[licenseIndex] + '.md');
+    }
+
+    function getLicenseName (selectedTemplate : int, licenseIndex : int) : string
+    {
+        var licenses = this.getCompatibleLicenseList(selectedTemplate);
+        var filename = licenses[licenseIndex];
+        var masterIndex = this.licenses.indexOf(filename);
+        return this.licenseNames[masterIndex];
     }
 
     function save (persistentData : Map.<string>) : void
