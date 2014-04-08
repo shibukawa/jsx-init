@@ -1,0 +1,48 @@
+{
+  "name": "{{& name }}",
+  "description": "{{& description }}",
+  "version": "{{& version }}",
+  "main": "index.html",
+  "bugs": {
+    "url": "{{& issuetracker }}"
+  },
+  "repository": {
+    "type": "{{& repositorytype}}",
+    "url": "{{& repository }}"
+  },
+  "author": "{{& author }}",
+  "license": "{{& licensename }}",
+  "keywords": [ "node-webkit", "gui" ],
+
+  "nodejs": true,
+  "chromium-args": "",
+  "js-flags": "",
+  "no-edit-menu": true,
+  "single-instance": true,
+  "window": {
+    "title": "{{& OriginalName }}",
+    "icon": "link.png",
+    "toolbar": true,
+    "frame": true,
+    "width": 800,
+    "height": 500,
+    "position": "center",
+    "min_width": 400,
+    "min_height": 200,
+    "max_width": 800,
+    "max_height": 600,
+    "resizable": true,
+    "always-on-top": false,
+    "fullscreen": false,
+    "show_in_taskbar": true,
+    "kiosk": false
+  },
+  "webkit": {
+    "plugin": true,
+    "java": false,
+    "page-cache": false
+  },
+  "dependencies": {
+    "deck": "latest"
+  }
+}

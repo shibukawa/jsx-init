@@ -64,6 +64,7 @@ Before running command, creating repository on github or bitbucket is prefered.
 * `jsx-lib`: Library for JSX code.
 * `node-app`: node.js cli application.
 * `node-webkit-app`: node-webkit GUI application.
+* `node-webkit-webgl-app`: WebGL GUI application.
 * `web-canvas-app`: HTML5 Canvas application.
 * `sencha-touch-app`: Sencha Touch application. You should download [Sencha Touch SDK](http://www.sencha.com/products/touch) first (experimental).
 * `webworker`: WebWorker program.

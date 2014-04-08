@@ -1,0 +1,18 @@
+{
+    "comment": "@@@@@ This file is used from jsx-init. Not installed to generated program @@@@@",
+    "description": "WebGL GUI application on node-webkit.",
+    "dirs": ["src", "test", "doc", "appsrc", "build"],
+    "templates":
+    [
+        "README.md",
+        "HISTORY.md",
+        "package.json",
+        "src/app.jsx",
+        "test/test-__name__.jsx",
+        "appsrc/Credits.html",
+        "appsrc/index.html",
+        "appsrc/package.json"
+    ],
+    "copyfiles": ["__dot__gitignore", ".npmignore", ".travis.yml", "gruntfile.js"],
+    "licenses": false
+}
