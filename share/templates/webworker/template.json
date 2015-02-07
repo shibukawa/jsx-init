@@ -8,8 +8,7 @@
         "HISTORY.md",
         "package.json",
         "src/__name__.jsx",
-        "test/test-__name__.jsx",
-        "gruntfile.js"
+        "test/test-__name__.jsx"
     ],
     "copyfiles": [
         "__dot__gitignore",

@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     srcDir: "src",
     sampleDir: "sample",
     buildDir: "dest/src",
-    libDir: "lib",
+    libDir: "src",
     testDir: "test",
     docDir: "doc",
 
